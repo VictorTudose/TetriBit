@@ -1,0 +1,16 @@
+Programul implementeaza un joc de tetris pe biti.Am folosit in scirerea programul , pe langa notiunile predate in cele 3 laboratoare,  functii pentru a facilita scrierea si organizarea programului.
+
+Functia "afisare" primeste ca parametru un numar de tip unsigned long long si realizeaza afisarea hartii ce se obtine din reprezentarea lui binara.
+
+Functia "coliziune" primeste ca parametri harta si piesa si returneaza un 1 daca piesa e deasupra hartii si 0 in caz contrar. Se verifica prin intersectarea hartii cu piesa coborata o pozitie.
+
+Functia "wall" primeste ca parametru sensul miscarii  si returneaza peretele corespunzator. Mai intai se genereaza peretele din dreapta iar daca sensul e 0 , stanga, peretele se muta la stanga cu 7 pozitii.
+
+Functia "mtr" primeste ca parametru harta, piesa si transformarea si returneaza pozitia piesei dupa aplicarea transformarii. Se determina sensul trasnformarii si in functie de el se formeaza variabila Wall , peretele respectiv trasformarii. Se efectueaza trasformarea pas cu pas , piesa deplasandu-se cate o pozitie , pana cand se ajunge la perete sau in dreptul hartii sau pana cand variabila in care se primeste numarul transformarii devine 0.
+
+Functia "line" primeste ca parametru harta si returneaza numarul asociat primei linii complete din harta , facand cautarea liniei de sus in jos. Daca nu exista linii complete se va returna valoarea 0.
+
+Functia "rmline" primeste ca parametru harta si numarul liniei ce trebuia eliminata. Salveaza in variabila down partea hartii ce e sub linie si in up partea hartii ce e deasupra liniei. Up se coboara cu o pozitie. Se returneaza up|down ce reprezinta harta cu linia respectiva eliminata si toate liniile deasupra coborate cu o pozitie.
+
+In main se citeste harta si numarul de mutari si se afiseaza harta. Se citeste piesa , se retine tipul si se urca pe penultima linie pentru a u se elimina jumatatea superioara. Se verifica daca piesa ,urcata cu o pozitie , intersecteaza harta ,daca da se va iesi din while si nu se va efectua nici o instructiune in el. Se efectueaza prima mutare asupra piesei , folisndu-se harta coborata o pozitie. Se verifica coliziunea , iar daca piesa e de tip 2 se va iesi din while.Dupa a doua mutare se intra intr-un for in care se coboara piesa se executa mutarea asupra ei si se verifica coliziune, care in caz e pozitiva se va iesii din for . Dupa for e un while in care se citesc mutarile care nu s-au efectuat. Dupa efectuarea ultimei mutarii  se pune piesa pe harta si se elimina liniile care au fost completate ,iar la eliminarea unei linii se incrementeaza contorul care numara liniile completate.
+La final se numara cati de unu apar in harta , folosindu-se metoda eliminarii bitului celui mai putin semnificativ. Numarul de zerouri este 64 minus numarul de unu. Se calculeaza scorul si se afiseaza mesajus de Gameover si scorul.
